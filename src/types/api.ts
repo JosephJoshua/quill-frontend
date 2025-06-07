@@ -54,3 +54,14 @@ export interface ApiError {
   error: string;
   statusCode: number;
 }
+
+// --- Flashcards ---
+export interface Flashcard {
+  id: string;
+  userId: string;
+  language: Language;
+  frontText: string;
+  backText: string;
+  state: FlashcardState;
+  dueDate: string;
+}
