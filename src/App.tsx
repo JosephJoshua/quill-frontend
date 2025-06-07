@@ -12,6 +12,8 @@ import AssessmentPage from "@/pages/assessment";
 import ReaderPage from "@/pages/reader";
 import SrsReviewPage from "@/pages/srs-review";
 import SrsBrowsePage from "@/pages/srs-browse";
+import QuizPage from "@/pages/quiz";
+import QuizAttemptPage from "@/pages/quiz-attempt";
 import NotFoundPage from "@/pages/not-found";
 
 const AppRouter = () => {
@@ -29,6 +31,8 @@ const AppRouter = () => {
           element: <ProtectedRoute />,
           children: [
             { path: "/onboarding/assessment", element: <AssessmentPage /> },
+            { path: "/quiz/:contentId", element: <QuizPage /> },
+            { path: "/quiz/attempt/:attemptId", element: <QuizAttemptPage /> },
             {
               element: <AppLayout />,
               children: [

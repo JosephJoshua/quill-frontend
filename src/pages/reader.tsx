@@ -61,7 +61,15 @@ export default function ReaderPage() {
       <ResizablePanelGroup direction="horizontal" className="min-h-screen w-full">
         <ResizablePanel defaultSize={65} minSize={30}>
           <ScrollArea className="h-screen">
-            <ContentDisplay content={content} onTextSelect={handleTextSelect} />
+            <div className="p-6 md:p-8">
+              <div className="flex justify-between items-center mb-4">
+                <h1 className="text-2xl font-bold">{content.title}</h1>
+                {content.comprehensionQuestions?.length > 0 && (
+                  <Button asChild><Link to={`/quiz/${content.id}`}>{t('reader.takeQuiz')}</Link></Button>
+                )}
+              </div>
+              <ContentDisplay content={content} onTextSelect={handleTextSelect} />
+            </div>
           </ScrollArea>
         </ResizablePanel>
         <ResizableHandle withHandle />

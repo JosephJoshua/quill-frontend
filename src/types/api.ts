@@ -182,3 +182,29 @@ export interface CreateFlashcardDto {
   backText: string;
   details?: CardDetails;
 }
+
+// --- Quizzes ---
+export interface SubmitQuizDto {
+  contentId: string;
+  answers: {
+    questionId: string;
+    answer: string;
+  }[];
+}
+
+export interface QuizAttempt {
+  id: string;
+  userId: string;
+  contentId: string;
+  status: 'grading' | 'completed';
+  score?: number;
+  createdAt: string;
+  completedAt?: string;
+  answers: {
+    id: string;
+    questionId: string;
+    userAnswer: string;
+    isCorrect?: boolean;
+    feedback?: string;
+  }[];
+}

@@ -94,6 +94,7 @@
     }
   },
   "reader": {
+    "takeQuiz": "Take Quiz",
     "createFlashcard": "Create Flashcard",
     "createFlashcardTitle": "Create a New Flashcard",
     "createFlashcardDescription": "Review and edit the details for your new card.",
@@ -156,5 +157,19 @@
       "updateToastSuccess": "Flashcard updated.",
       "updateToastError": "Failed to update flashcard."
     }
+  },
+  "quiz": {
+    "title": "Comprehension Quiz",
+    "submit": "Submit Quiz",
+    "submitting": "Submitting...",
+    "resultsTitle": "Quiz Results",
+    "grading": "Your quiz is being graded...",
+    "gradingDescription": "This may take a moment. The results will appear here automatically.",
+    "score": "Your Score",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "yourAnswer": "Your answer",
+    "correctAnswer": "Correct answer",
+    "backToLibrary": "Back to Library"
   }
 }
