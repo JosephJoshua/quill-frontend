@@ -107,4 +107,19 @@
     "submit": "Send",
     "welcome": "Hello! I am your AI Tutor. Ask me anything about the text you are reading."
   }
+,
+  "srs": {
+    "title": "Review Session",
+    "showAnswer": "Show Answer",
+    "allDoneTitle": "All Done!",
+    "allDoneDescription": "You have completed your review session for now. Great job!",
+    "backToDashboard": "Back to Dashboard",
+    "loadingError": "Could not load review session. Please try again.",
+    "ratings": {
+      "again": "Again",
+      "hard": "Hard",
+      "good": "Good",
+      "easy": "Easy"
+    }
+  }
 }

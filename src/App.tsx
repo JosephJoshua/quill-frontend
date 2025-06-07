@@ -14,7 +14,7 @@ import NotFoundPage from "@/pages/not-found";
 
 const AppRouter = () => {
   const { t } = useTranslation();
-  const SrsPage = () => <div className="container p-8"><h1>{t('nav.srs')}</h1></div>;
+  import SrsReviewPage from "./pages/srs-review";
 
   const router = createBrowserRouter([
     {
@@ -33,7 +33,7 @@ const AppRouter = () => {
               children: [
                 { path: "/dashboard", element: <DashboardPage /> },
                 { path: "/library", element: <LibraryPage /> },
-                { path: "/srs/review", element: <SrsPage /> },
+                { path: "/srs/review", element: <SrsReviewPage /> },
                 { path: "/reader/:id", element: <ReaderPage /> },
               ]
             }

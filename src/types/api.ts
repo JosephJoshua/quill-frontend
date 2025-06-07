@@ -136,3 +136,9 @@ export interface ContentDetailResponse {
   };
   // Other fields from the DTO are omitted for brevity but would be here
 }
+
+// --- SRS Review ---
+export interface FlashcardReviewDto {
+  flashcardId: string;
+  rating: FlashcardRating;
+}
