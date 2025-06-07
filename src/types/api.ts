@@ -196,7 +196,7 @@ export interface QuizAttempt {
   id: string;
   userId: string;
   contentId: string;
-  status: 'grading' | 'completed';
+  status: "grading" | "completed";
   score?: number;
   createdAt: string;
   completedAt?: string;

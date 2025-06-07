@@ -43,8 +43,8 @@ const AppRouter = () => {
                 { path: "/srs/review", element: <SrsReviewPage /> },
                 { path: "/srs/all", element: <SrsBrowsePage /> },
                 { path: "/reader/:id", element: <ReaderPage /> },
-              ]
-            }
+              ],
+            },
           ],
         },
       ],
@@ -52,7 +52,7 @@ const AppRouter = () => {
   ]);
 
   return <RouterProvider router={router} />;
-}
+};
 
 function App() {
   return <AppRouter />;

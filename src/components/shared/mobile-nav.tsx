@@ -11,7 +11,10 @@ export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    cn("text-muted-foreground transition-colors hover:text-foreground", isActive && "text-foreground");
+    cn(
+      "text-muted-foreground transition-colors hover:text-foreground",
+      isActive && "text-foreground"
+    );
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -31,20 +34,36 @@ export function MobileNav() {
           onClick={() => setIsOpen(false)}
         >
           <BookOpenText className="h-6 w-6" />
-          <span className="font-bold">{t('appName')}</span>
+          <span className="font-bold">{t("appName")}</span>
         </NavLink>
         <div className="flex flex-col space-y-3 pt-6">
-          <NavLink to="/dashboard" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            {t('nav.dashboard')}
+          <NavLink
+            to="/dashboard"
+            className={navLinkClass}
+            onClick={() => setIsOpen(false)}
+          >
+            {t("nav.dashboard")}
           </NavLink>
-          <NavLink to="/library" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            {t('nav.library')}
+          <NavLink
+            to="/library"
+            className={navLinkClass}
+            onClick={() => setIsOpen(false)}
+          >
+            {t("nav.library")}
           </NavLink>
-          <NavLink to="/srs/review" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            {t('nav.srsReview')}
+          <NavLink
+            to="/srs/review"
+            className={navLinkClass}
+            onClick={() => setIsOpen(false)}
+          >
+            {t("nav.srsReview")}
           </NavLink>
-          <NavLink to="/srs/all" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            {t('nav.srsBrowse')}
+          <NavLink
+            to="/srs/all"
+            className={navLinkClass}
+            onClick={() => setIsOpen(false)}
+          >
+            {t("nav.srsBrowse")}
           </NavLink>
         </div>
       </SheetContent>

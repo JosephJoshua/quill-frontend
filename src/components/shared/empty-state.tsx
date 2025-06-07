@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface EmptyStateProps {
   icon?: React.ReactNode;
@@ -7,7 +7,12 @@ interface EmptyStateProps {
   action?: React.ReactNode;
 }
 
-export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
+export function EmptyState({
+  icon,
+  title,
+  description,
+  action,
+}: EmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center text-center p-8 h-full">
       {icon && <div className="mb-4 text-muted-foreground">{icon}</div>}

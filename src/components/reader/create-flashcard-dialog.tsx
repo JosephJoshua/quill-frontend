@@ -4,8 +4,21 @@ import * as z from "zod";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { flashcardService } from "@/services/flashcardService";
@@ -19,7 +32,13 @@ interface CreateFlashcardDialogProps {
   language: Language;
 }
 
-export function CreateFlashcardDialog({ isOpen, onOpenChange, selectedText, contentId, language }: CreateFlashcardDialogProps) {
+export function CreateFlashcardDialog({
+  isOpen,
+  onOpenChange,
+  selectedText,
+  contentId,
+  language,
+}: CreateFlashcardDialogProps) {
   const { t } = useTranslation();
 
   const formSchema = z.object({
@@ -46,11 +65,11 @@ export function CreateFlashcardDialog({ isOpen, onOpenChange, selectedText, cont
           pinyin: values.pinyin,
         },
       });
-      toast.success(t('reader.toastSuccess'));
+      toast.success(t("reader.toastSuccess"));
       onOpenChange(false);
       form.reset();
     } catch (error) {
-      toast.error(t('reader.toastError'));
+      toast.error(t("reader.toastError"));
       console.error(error);
     }
   }
@@ -59,29 +78,73 @@ export function CreateFlashcardDialog({ isOpen, onOpenChange, selectedText, cont
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{t('reader.createFlashcardTitle')}</DialogTitle>
-          <DialogDescription>{t('reader.createFlashcardDescription')}</DialogDescription>
+          <DialogTitle>{t("reader.createFlashcardTitle")}</DialogTitle>
+          <DialogDescription>
+            {t("reader.createFlashcardDescription")}
+          </DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField control={form.control} name="frontText" render={({ field }) => (
-              <FormItem><FormLabel>{t('reader.frontTextLabel')}</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage /></FormItem>
-            )} />
-            <FormField control={form.control} name="backText" render={({ field }) => (
-              <FormItem><FormLabel>{t('reader.backTextLabel')}</FormLabel><FormControl><Textarea {...field} /></FormControl><FormMessage /></FormItem>
-            )} />
-            {language === 'jpn' && (
-              <FormField control={form.control} name="furigana" render={({ field }) => (
-                <FormItem><FormLabel>{t('reader.furiganaLabel')}</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
-              )} />
+            <FormField
+              control={form.control}
+              name="frontText"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("reader.frontTextLabel")}</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="backText"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("reader.backTextLabel")}</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {language === "jpn" && (
+              <FormField
+                control={form.control}
+                name="furigana"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t("reader.furiganaLabel")}</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             )}
-            {language === 'chi_sim' && (
-              <FormField control={form.control} name="pinyin" render={({ field }) => (
-                <FormItem><FormLabel>{t('reader.pinyinLabel')}</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
-              )} />
+            {language === "chi_sim" && (
+              <FormField
+                control={form.control}
+                name="pinyin"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t("reader.pinyinLabel")}</FormLabel>
+                    <FormControl>
+                      <Input {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             )}
             <Button type="submit" disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting ? t('reader.submittingButton') : t('reader.submitButton')}
+              {form.formState.isSubmitting
+                ? t("reader.submittingButton")
+                : t("reader.submitButton")}
             </Button>
           </form>
         </Form>

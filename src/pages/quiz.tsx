@@ -23,14 +23,15 @@ export default function QuizPage() {
 
   useEffect(() => {
     if (!contentId) return;
-    contentService.getById(contentId)
+    contentService
+      .getById(contentId)
       .then(setContent)
       .catch(() => toast.error("Failed to load quiz questions."))
       .finally(() => setIsLoading(false));
   }, [contentId]);
 
   const handleAnswerChange = (questionId: string, answer: string) => {
-    setAnswers(prev => ({ ...prev, [questionId]: answer }));
+    setAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,7 +40,10 @@ export default function QuizPage() {
     setIsSubmitting(true);
     const submission = {
       contentId,
-      answers: Object.entries(answers).map(([questionId, answer]) => ({ questionId, answer })),
+      answers: Object.entries(answers).map(([questionId, answer]) => ({
+        questionId,
+        answer,
+      })),
     };
     try {
       const attempt = await quizService.submit(submission);
@@ -50,19 +54,23 @@ export default function QuizPage() {
     }
   };
 
-  if (isLoading) return <div className="p-8">{t('common.loading')}</div>;
-  if (!content) return <div className="p-8">{t('common.error')}</div>;
+  if (isLoading) return <div className="p-8">{t("common.loading")}</div>;
+  if (!content) return <div className="p-8">{t("common.error")}</div>;
 
   return (
     <div className="container max-w-3xl mx-auto p-4 sm:p-8">
-      <h1 className="text-3xl font-bold mb-2">{t('quiz.title')}</h1>
+      <h1 className="text-3xl font-bold mb-2">{t("quiz.title")}</h1>
       <h2 className="text-xl text-muted-foreground mb-8">{content.title}</h2>
       <form onSubmit={handleSubmit} className="space-y-8">
         {content.comprehensionQuestions.map((q, index) => (
           <div key={q.id} className="p-6 border rounded-lg">
-            <p className="font-semibold mb-4">{index + 1}. {q.question}</p>
-            {q.questionType === 'multipleChoice' ? (
-              <RadioGroup onValueChange={(value) => handleAnswerChange(q.id, value)}>
+            <p className="font-semibold mb-4">
+              {index + 1}. {q.question}
+            </p>
+            {q.questionType === "multipleChoice" ? (
+              <RadioGroup
+                onValueChange={(value) => handleAnswerChange(q.id, value)}
+              >
                 {q.options.map((option, i) => (
                   <div key={i} className="flex items-center space-x-2">
                     <RadioGroupItem value={option} id={`${q.id}-${i}`} />
@@ -71,12 +79,20 @@ export default function QuizPage() {
                 ))}
               </RadioGroup>
             ) : (
-              <Textarea placeholder="Your answer..." onChange={(e) => handleAnswerChange(q.id, e.target.value)} />
+              <Textarea
+                placeholder="Your answer..."
+                onChange={(e) => handleAnswerChange(q.id, e.target.value)}
+              />
             )}
           </div>
         ))}
-        <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? t('quiz.submitting') : t('quiz.submit')}
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? t("quiz.submitting") : t("quiz.submit")}
         </Button>
       </form>
     </div>
