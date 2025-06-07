@@ -77,8 +77,7 @@
   "common": {
     "loading": "Loading...",
     "error": "An error occurred. Please try again."
-  }
-,
+  },
   "onboarding": {
     "title": "Language Proficiency Assessment",
     "description": "To personalize your learning experience, please write a short text in {{language}} based on the prompt below. This is optional, but highly recommended.",
@@ -91,8 +90,7 @@
       "promptFailed": "Could not load the assessment prompt. Please try again later.",
       "submitFailed": "Failed to submit assessment. Please try again."
     }
-  }
-,
+  },
   "reader": {
     "loading": "Loading content...",
     "error": "Failed to load content. Please go back and try again.",
@@ -106,8 +104,7 @@
     "placeholder": "Ask a question about the text...",
     "submit": "Send",
     "welcome": "Hello! I am your AI Tutor. Ask me anything about the text you are reading."
-  }
-,
+  },
   "srs": {
     "title": "Review Session",
     "showAnswer": "Show Answer",
@@ -115,6 +112,13 @@
     "allDoneDescription": "You have completed your review session for now. Great job!",
     "backToDashboard": "Back to Dashboard",
     "loadingError": "Could not load review session. Please try again.",
+    "details": {
+      "title": "Details",
+      "pos": "Part of Speech",
+      "pinyin": "Pinyin",
+      "ipa": "IPA",
+      "examples": "Examples"
+    },
     "ratings": {
       "again": "Again",
       "hard": "Hard",

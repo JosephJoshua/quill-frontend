@@ -37,6 +37,47 @@ export interface User {
   updatedAt: string;
 }
 
+// --- Flashcard Details ---
+export interface BaseVocabDetails {
+  partOfSpeech?: string;
+  audioUrl?: string;
+  exampleSentences?: { sentence: string; translation?: string }[];
+}
+
+export interface JapaneseVocabDetails extends BaseVocabDetails {
+  furigana?: string;
+}
+
+export interface ChineseVocabDetails extends BaseVocabDetails {
+  pinyin?: string;
+}
+
+export interface EnglishVocabDetails extends BaseVocabDetails {
+  ipa?: string;
+}
+
+export type CardDetails =
+  | JapaneseVocabDetails
+  | ChineseVocabDetails
+  | EnglishVocabDetails;
+
+// --- Flashcards ---
+export interface Flashcard {
+  id: string;
+  userId: string;
+  language: Language;
+  frontText: string;
+  backText: string;
+  details?: CardDetails;
+  state: FlashcardState;
+  dueDate: string;
+}
+
+export interface FlashcardReviewDto {
+  flashcardId: string;
+  rating: FlashcardRating;
+}
+
 // --- Content ---
 export interface ContentSummary {
   id: string;
@@ -48,22 +89,20 @@ export interface ContentSummary {
   createdAt: string;
 }
 
-// --- API Error ---
-export interface ApiError {
-  message: string | string[];
-  error: string;
-  statusCode: number;
-}
-
-// --- Flashcards ---
-export interface Flashcard {
+export interface ContentDetailResponse {
   id: string;
-  userId: string;
+  title: string;
+  author?: string;
   language: Language;
-  frontText: string;
-  backText: string;
-  state: FlashcardState;
-  dueDate: string;
+  rawText: string;
+  linguisticAnalysis: {
+    keyVocabulary: {
+      word: string;
+      partOfSpeech: string;
+      definition: string;
+      exampleSentence: string;
+    }[];
+  };
 }
 
 // --- Generic Paginated Response ---
@@ -119,26 +158,9 @@ export interface Dialogue {
   timestamp: string;
 }
 
-// --- Detailed Content ---
-export interface ContentDetailResponse {
-  id: string;
-  title: string;
-  author?: string;
-  language: Language;
-  rawText: string;
-  linguisticAnalysis: {
-    keyVocabulary: {
-      word: string;
-      partOfSpeech: string;
-      definition: string;
-      exampleSentence: string;
-    }[];
-  };
-  // Other fields from the DTO are omitted for brevity but would be here
-}
-
-// --- SRS Review ---
-export interface FlashcardReviewDto {
-  flashcardId: string;
-  rating: FlashcardRating;
+// --- API Error ---
+export interface ApiError {
+  message: string | string[];
+  error: string;
+  statusCode: number;
 }
