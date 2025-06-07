@@ -36,6 +36,12 @@ export function LanguageSwitcher() {
         >
           简体中文
         </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => changeLanguage("ja-JP")}
+          disabled={i18n.resolvedLanguage === "ja-JP"}
+        >
+          日本語
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

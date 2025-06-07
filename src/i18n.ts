@@ -7,7 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    supportedLngs: ["en", "zh-CN"],
+    supportedLngs: ["en", "zh-CN", "ja-JP"],
     debug: import.meta.env.DEV,
     interpolation: {
       escapeValue: false,

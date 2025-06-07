@@ -1,0 +1,235 @@
+{
+  "appName": "Quill",
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "library": "ライブラリ",
+    "srs": "SRS学習",
+    "srsReview": "復習セッション",
+    "srsBrowse": "単語カード一覧"
+  },
+  "userMenu": {
+    "profile": "プロフィール",
+    "settings": "設定",
+    "logout": "ログアウト"
+  },
+  "theme": {
+    "toggle": "テーマ切替",
+    "light": "ライトモード",
+    "dark": "ダークモード",
+    "system": "システム設定"
+  },
+  "login": {
+    "title": "ログイン",
+    "description": "アカウントにログイン",
+    "emailLabel": "メールアドレス",
+    "passwordLabel": "パスワード",
+    "submitButton": "ログイン",
+    "loadingButton": "認証中...",
+    "signupPrompt": "アカウントをお持ちでない方",
+    "signupLink": "新規登録"
+  },
+  "signup": {
+    "title": "新規登録",
+    "description": "アカウント情報を入力",
+    "nameLabel": "ユーザー名",
+    "submitButton": "アカウント作成",
+    "loadingButton": "作成中...",
+    "loginPrompt": "既にアカウントをお持ちの方",
+    "loginLink": "ログイン"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "welcome": "学習ダッシュボードへようこそ",
+    "reviewQueue": "復習キュー",
+    "reviewQueueDesc": "復習が必要な単語カード",
+    "startReview": "復習開始",
+    "continueReading": "続きを読む",
+    "continueReadingDesc": "前回の続きから読書",
+    "openBook": "書籍を開く",
+    "startReading": "読書を始める",
+    "startReadingDesc": "ライブラリから選択",
+    "browseLibrary": "ライブラリ閲覧",
+    "weeklyGoal": "週間目標",
+    "weeklyGoalDesc": "今週の進捗状況",
+    "comingSoon": "近日公開",
+    "recommendations": "おすすめ教材"
+  },
+  "library": {
+    "title": "教材ライブラリ",
+    "searchPlaceholder": "タイトル検索...",
+    "language": "言語",
+    "allLanguages": "全言語",
+    "difficulty": "難易度",
+    "allLevels": "全レベル",
+    "table": {
+      "title": "タイトル",
+      "author": "著者",
+      "language": "言語",
+      "level": "レベル",
+      "actions": "操作"
+    },
+    "noResults": "該当する教材がありません",
+    "read": "読む",
+    "pagination": {
+      "previous": "前へ",
+      "next": "次へ",
+      "pageInfo": "{{currentPage}} / {{totalPages}} ページ"
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました"
+  },
+  "onboarding": {
+    "title": "語学力診断",
+    "description": "{{language}}で以下のテーマについて短い文章を書いてください（任意ですが推奨）",
+    "promptLabel": "お題",
+    "textLabel": "回答内容",
+    "submitButton": "診断を提出",
+    "submittingButton": "送信中...",
+    "skipButton": "スキップ",
+    "errors": {
+      "promptFailed": "お題の読み込みに失敗しました",
+      "submitFailed": "提出に失敗しました"
+    }
+  },
+  "reader": {
+    "takeQuiz": "理解度テスト",
+    "createFlashcard": "単語カード作成",
+    "createFlashcardTitle": "新規単語カード",
+    "createFlashcardDescription": "単語カードの詳細を編集",
+    "frontTextLabel": "表面（原文）",
+    "backTextLabel": "裏面（訳/定義）",
+    "furiganaLabel": "ふりがな（任意）",
+    "pinyinLabel": "ピンイン（任意）",
+    "submitButton": "作成",
+    "submittingButton": "作成中...",
+    "toastSuccess": "単語カードを作成しました",
+    "toastError": "作成に失敗しました",
+    "loading": "コンテンツ読み込み中...",
+    "error": "読み込みに失敗しました",
+    "backToLibrary": "ライブラリに戻る",
+    "wordDefinition": "定義",
+    "partOfSpeech": "品詞",
+    "example": "例文"
+  },
+  "tutor": {
+    "title": "AIチューター",
+    "placeholder": "テキストについて質問...",
+    "submit": "送信",
+    "welcome": "テキストに関する質問にお答えします"
+  },
+  "srs": {
+    "title": "復習セッション",
+    "showAnswer": "解答を表示",
+    "allDoneTitle": "完了！",
+    "allDoneDescription": "今回の復習が終了しました",
+    "backToDashboard": "ダッシュボードに戻る",
+    "loadingError": "読み込みに失敗しました",
+    "details": {
+      "title": "詳細情報",
+      "pos": "品詞",
+      "pinyin": "ピンイン",
+      "ipa": "発音記号",
+      "examples": "使用例"
+    },
+    "ratings": {
+      "again": "もう一度",
+      "hard": "難しい",
+      "good": "適切",
+      "easy": "簡単"
+    },
+    "browse": {
+      "title": "マイ単語カード",
+      "searchPlaceholder": "単語カード検索...",
+      "table": {
+        "front": "表面",
+        "back": "裏面",
+        "dueDate": "次回復習",
+        "actions": "操作"
+      },
+      "edit": "編集",
+      "delete": "削除",
+      "deleteConfirmTitle": "削除の確認",
+      "deleteConfirmDescription": "この操作は取り消せません",
+      "deleteToastSuccess": "削除しました",
+      "deleteToastError": "削除に失敗しました",
+      "updateToastSuccess": "更新しました",
+      "updateToastError": "更新に失敗しました"
+    }
+  },
+  "quiz": {
+    "title": "理解度テスト",
+    "submit": "提出",
+    "submitting": "送信中...",
+    "resultsTitle": "テスト結果",
+    "grading": "採点中...",
+    "gradingDescription": "自動で結果が表示されます",
+    "score": "得点",
+    "correct": "正解",
+    "incorrect": "不正解",
+    "yourAnswer": "あなたの回答",
+    "correctAnswer": "正答",
+    "backToLibrary": "ライブラリに戻る"
+  },
+  "profile": {
+    "title": "アカウント設定",
+    "description": "設定と個人情報の管理",
+    "tabs": {
+      "profile": "プロフィール",
+      "security": "セキュリティ"
+    },
+    "nameLabel": "ユーザー名",
+    "emailLabel": "メールアドレス",
+    "saveButton": "変更を保存",
+    "savingButton": "保存中...",
+    "updateSuccess": "更新しました",
+    "updateError": "更新に失敗しました",
+    "password": {
+      "title": "パスワード変更",
+      "currentLabel": "現在のパスワード",
+      "newLabel": "新しいパスワード",
+      "confirmLabel": "新しいパスワード（確認）",
+      "submitButton": "パスワード更新",
+      "success": "変更しました",
+      "error": "変更に失敗しました"
+    }
+  },
+  "landing": {
+    "nav": {
+      "features": "特徴",
+      "testimonials": "利用者評価",
+      "login": "ログイン"
+    },
+    "hero": {
+      "headline": "読書で習得する言語力",
+      "subheadline": "文学作品に統合されたAI学習ツールで効率的な言語習得を実現",
+      "cta": "無料で始める"
+    },
+    "features": {
+      "title": "革新的な学習体験",
+      "f1_title": "対話型読書",
+      "f1_desc": "ワンクリックで単語検索・フラッシュカード作成",
+      "f2_title": "AIチューター",
+      "f2_desc": "文法・文化背景に関する即時質問対応",
+      "f3_title": "インテリジェントSRS",
+      "f3_desc": "最適なタイミングでの復習を提案"
+    },
+    "testimonials": {
+      "title": "ユーザーの声",
+      "t1_text": "日本語読書が革命的に変化。単語検索とカード作成が同時に可能に",
+      "t1_name": "アレックス・ジョンソン",
+      "t1_role": "ベータテスター",
+      "t2_text": "AIチューターが常に疑問を解決。ニュアンス理解が飛躍的に向上",
+      "t2_name": "マリア・ガルシア",
+      "t2_role": "日本語学習者"
+    },
+    "final_cta": {
+      "title": "学習を始めましょう",
+      "cta": "今すぐ登録"
+    },
+    "footer": {
+      "copy": "© 2025 Quill All Rights Reserved"
+    }
+  }
+}
