@@ -3,8 +3,10 @@ import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { ContentDisplay } from '@/components/reader/content-display';
 import { TutorPanel } from '@/components/reader/tutor-panel';
+import { CreateFlashcardDialog } from '@/components/reader/create-flashcard-dialog';
 import { contentService } from '@/services/contentService';
 import { ContentDetailResponse } from '@/types/api';
 
@@ -14,6 +16,9 @@ export default function ReaderPage() {
   const [content, setContent] = useState<ContentDetailResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  const [isCardCreatorOpen, setIsCardCreatorOpen] = useState(false);
+  const [selectedText, setSelectedText] = useState("");
 
   useEffect(() => {
     if (!id) {
@@ -29,7 +34,6 @@ export default function ReaderPage() {
         setContent(data);
       } catch (err) {
         setError(t('reader.error'));
-        console.error(err);
       } finally {
         setIsLoading(false);
       }
@@ -37,10 +41,12 @@ export default function ReaderPage() {
     fetchContent();
   }, [id, t]);
 
-  if (isLoading) {
-    return <div className="flex items-center justify-center h-screen">{t('reader.loading')}</div>;
-  }
+  const handleTextSelect = (text: string) => {
+    setSelectedText(text);
+    setIsCardCreatorOpen(true);
+  };
 
+  if (isLoading) return <div className="flex items-center justify-center h-screen">{t('reader.loading')}</div>;
   if (error || !content) {
     return (
       <div className="flex flex-col items-center justify-center h-screen gap-4">
@@ -51,16 +57,25 @@ export default function ReaderPage() {
   }
 
   return (
-    <ResizablePanelGroup direction="horizontal" className="min-h-screen w-full">
-      <ResizablePanel defaultSize={65} minSize={30}>
-        <ScrollArea className="h-screen">
-          <ContentDisplay content={content} />
-        </ScrollArea>
-      </ResizablePanel>
-      <ResizableHandle withHandle />
-      <ResizablePanel defaultSize={35} minSize={20}>
-        <TutorPanel contentId={content.id} />
-      </ResizablePanel>
-    </ResizablePanelGroup>
+    <>
+      <ResizablePanelGroup direction="horizontal" className="min-h-screen w-full">
+        <ResizablePanel defaultSize={65} minSize={30}>
+          <ScrollArea className="h-screen">
+            <ContentDisplay content={content} onTextSelect={handleTextSelect} />
+          </ScrollArea>
+        </ResizablePanel>
+        <ResizableHandle withHandle />
+        <ResizablePanel defaultSize={35} minSize={20}>
+          <TutorPanel contentId={content.id} />
+        </ResizablePanel>
+      </ResizablePanelGroup>
+      <CreateFlashcardDialog
+        isOpen={isCardCreatorOpen}
+        onOpenChange={setIsCardCreatorOpen}
+        selectedText={selectedText}
+        contentId={content.id}
+        language={content.language}
+      />
+    </>
   );
 }

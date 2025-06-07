@@ -164,3 +164,21 @@ export interface ApiError {
   error: string;
   statusCode: number;
 }
+
+// --- Flashcard Creation ---
+export interface CreateFlashcardDto {
+  contentId?: string;
+  language: Language;
+  frontText: string;
+  backText: string;
+  details?: CardDetails;
+}
+
+// --- Flashcard Creation ---
+export interface CreateFlashcardDto {
+  contentId?: string;
+  language: Language;
+  frontText: string;
+  backText: string;
+  details?: CardDetails;
+}

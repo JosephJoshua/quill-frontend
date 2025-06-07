@@ -92,6 +92,17 @@
     }
   },
   "reader": {
+    "createFlashcard": "Create Flashcard",
+    "createFlashcardTitle": "Create a New Flashcard",
+    "createFlashcardDescription": "Review and edit the details for your new card.",
+    "frontTextLabel": "Front Text (Source)",
+    "backTextLabel": "Back Text (Translation/Definition)",
+    "furiganaLabel": "Furigana (Optional)",
+    "pinyinLabel": "Pinyin (Optional)",
+    "submitButton": "Create Card",
+    "submittingButton": "Creating...",
+    "toastSuccess": "Flashcard created successfully!",
+    "toastError": "Failed to create flashcard.",
     "loading": "Loading content...",
     "error": "Failed to load content. Please go back and try again.",
     "backToLibrary": "Back to Library",
