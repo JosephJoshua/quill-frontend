@@ -98,3 +98,41 @@ export interface UserProficiencyAssessment {
     specifics: string;
   }[];
 }
+
+// --- Tutor ---
+export interface TutorChatRequest {
+  message: string;
+  contentId: string;
+  conversationId?: string;
+}
+
+export interface TutorChatResponse {
+  response: string;
+  dialogueId: string;
+  conversationId: string;
+}
+
+export interface Dialogue {
+  id: string;
+  userMessage: string;
+  aiResponse: string;
+  timestamp: string;
+}
+
+// --- Detailed Content ---
+export interface ContentDetailResponse {
+  id: string;
+  title: string;
+  author?: string;
+  language: Language;
+  rawText: string;
+  linguisticAnalysis: {
+    keyVocabulary: {
+      word: string;
+      partOfSpeech: string;
+      definition: string;
+      exampleSentence: string;
+    }[];
+  };
+  // Other fields from the DTO are omitted for brevity but would be here
+}

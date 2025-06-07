@@ -1,5 +1,5 @@
 import { apiClient } from './apiClient';
-import { ContentSummary, Language, CefrLevel, PaginatedResponse } from '@/types/api';
+import { ContentSummary, Language, CefrLevel, PaginatedResponse, ContentDetailResponse } from '@/types/api';
 
 interface GetAllContentParams {
   q?: string;
@@ -15,12 +15,15 @@ export const contentService = {
   },
 
   getAll: (params: GetAllContentParams): Promise<PaginatedResponse<ContentSummary>> => {
-    // Create a new URLSearchParams object, filtering out empty values
     const query = new URLSearchParams(
       Object.fromEntries(
         Object.entries(params).filter(([, value]) => value != null && value !== '')
       ) as Record<string, string>
     );
     return apiClient.get<PaginatedResponse<ContentSummary>>(`/content/all?${query.toString()}`);
+  },
+
+  getById: (id: string): Promise<ContentDetailResponse> => {
+    return apiClient.get<ContentDetailResponse>(`/content/${id}`);
   },
 };

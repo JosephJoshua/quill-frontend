@@ -9,6 +9,7 @@ import SignupPage from "@/pages/signup";
 import DashboardPage from "@/pages/dashboard";
 import LibraryPage from "@/pages/library";
 import AssessmentPage from "@/pages/assessment";
+import ReaderPage from "@/pages/reader";
 import NotFoundPage from "@/pages/not-found";
 
 const AppRouter = () => {
@@ -33,6 +34,7 @@ const AppRouter = () => {
                 { path: "/dashboard", element: <DashboardPage /> },
                 { path: "/library", element: <LibraryPage /> },
                 { path: "/srs/review", element: <SrsPage /> },
+                { path: "/reader/:id", element: <ReaderPage /> },
               ]
             }
           ],

@@ -92,4 +92,19 @@
       "submitFailed": "Failed to submit assessment. Please try again."
     }
   }
+,
+  "reader": {
+    "loading": "Loading content...",
+    "error": "Failed to load content. Please go back and try again.",
+    "backToLibrary": "Back to Library",
+    "wordDefinition": "Definition",
+    "partOfSpeech": "Part of Speech",
+    "example": "Example"
+  },
+  "tutor": {
+    "title": "AI Tutor",
+    "placeholder": "Ask a question about the text...",
+    "submit": "Send",
+    "welcome": "Hello! I am your AI Tutor. Ask me anything about the text you are reading."
+  }
 }
