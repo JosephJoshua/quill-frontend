@@ -25,8 +25,13 @@ export default function LoginPage() {
       const { access_token, user } = await authService.login({ email, password });
       setToken(access_token);
       setUser(user);
-      // Onboarding logic will be added in the next step
-      navigate("/dashboard");
+      
+      // Redirect to onboarding if user has no proficiency level, otherwise to dashboard
+      if (user.estimatedCefrLevel) {
+        navigate("/dashboard");
+      } else {
+        navigate("/onboarding/assessment");
+      }
     } catch (err: any) {
       setError(err.message || "Failed to log in. Please check your credentials.");
     } finally {

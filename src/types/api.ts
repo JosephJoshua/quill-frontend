@@ -77,3 +77,24 @@ export interface PaginatedResponse<T> {
     currentPage: number;
   };
 }
+
+// --- Assessment ---
+export interface AssessmentPrompt {
+  id: string;
+  language: Language;
+  promptText: string;
+}
+
+export interface AssessProficiencyDto {
+  promptId: string;
+  text: string;
+}
+
+export interface UserProficiencyAssessment {
+  estimatedCefrLevel: CefrLevel;
+  strengths: string[];
+  areasForImprovement: {
+    area: string;
+    specifics: string;
+  }[];
+}

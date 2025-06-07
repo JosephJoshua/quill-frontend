@@ -8,13 +8,11 @@ import LoginPage from "@/pages/login";
 import SignupPage from "@/pages/signup";
 import DashboardPage from "@/pages/dashboard";
 import LibraryPage from "@/pages/library";
+import AssessmentPage from "@/pages/assessment";
 import NotFoundPage from "@/pages/not-found";
 
-// We define the router inside a component to use the i18n hook
 const AppRouter = () => {
   const { t } = useTranslation();
-
-  // Placeholder page for SRS
   const SrsPage = () => <div className="container p-8"><h1>{t('nav.srs')}</h1></div>;
 
   const router = createBrowserRouter([
@@ -28,6 +26,7 @@ const AppRouter = () => {
         {
           element: <ProtectedRoute />,
           children: [
+            { path: "/onboarding/assessment", element: <AssessmentPage /> },
             {
               element: <AppLayout />,
               children: [

@@ -78,4 +78,18 @@
     "loading": "Loading...",
     "error": "An error occurred. Please try again."
   }
+,
+  "onboarding": {
+    "title": "Language Proficiency Assessment",
+    "description": "To personalize your learning experience, please write a short text in {{language}} based on the prompt below. This is optional, but highly recommended.",
+    "promptLabel": "Your Prompt",
+    "textLabel": "Your Response",
+    "submitButton": "Submit Assessment",
+    "submittingButton": "Submitting...",
+    "skipButton": "Skip for now",
+    "errors": {
+      "promptFailed": "Could not load the assessment prompt. Please try again later.",
+      "submitFailed": "Failed to submit assessment. Please try again."
+    }
+  }
 }
