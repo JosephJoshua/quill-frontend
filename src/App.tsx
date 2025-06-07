@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { RootLayout } from "@/layouts/root-layout";
 import { AppLayout } from "@/layouts/app-layout";
 import { ProtectedRoute } from "@/components/shared/protected-route";
@@ -9,10 +10,13 @@ import DashboardPage from "@/pages/dashboard";
 import LibraryPage from "@/pages/library";
 import AssessmentPage from "@/pages/assessment";
 import ReaderPage from "@/pages/reader";
+import SrsReviewPage from "@/pages/srs-review";
+import SrsBrowsePage from "@/pages/srs-browse";
 import NotFoundPage from "@/pages/not-found";
-import SrsReviewPage from "./pages/srs-review";
 
 const AppRouter = () => {
+  const { t } = useTranslation();
+
   const router = createBrowserRouter([
     {
       element: <RootLayout />,
@@ -31,9 +35,10 @@ const AppRouter = () => {
                 { path: "/dashboard", element: <DashboardPage /> },
                 { path: "/library", element: <LibraryPage /> },
                 { path: "/srs/review", element: <SrsReviewPage /> },
+                { path: "/srs/all", element: <SrsBrowsePage /> },
                 { path: "/reader/:id", element: <ReaderPage /> },
-              ],
-            },
+              ]
+            }
           ],
         },
       ],
@@ -41,7 +46,7 @@ const AppRouter = () => {
   ]);
 
   return <RouterProvider router={router} />;
-};
+}
 
 function App() {
   return <AppRouter />;

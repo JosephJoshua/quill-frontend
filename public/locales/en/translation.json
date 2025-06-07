@@ -3,7 +3,9 @@
   "nav": {
     "dashboard": "Dashboard",
     "library": "Library",
-    "srs": "SRS"
+    "srs": "SRS",
+    "srsReview": "Review Session",
+    "srsBrowse": "Browse Cards"
   },
   "userMenu": {
     "profile": "Profile",
@@ -135,6 +137,24 @@
       "hard": "Hard",
       "good": "Good",
       "easy": "Easy"
+    },
+    "browse": {
+      "title": "My Flashcards",
+      "searchPlaceholder": "Search flashcards...",
+      "table": {
+        "front": "Front",
+        "back": "Back",
+        "dueDate": "Next Review",
+        "actions": "Actions"
+      },
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleteConfirmTitle": "Are you sure?",
+      "deleteConfirmDescription": "This action cannot be undone. This will permanently delete this flashcard.",
+      "deleteToastSuccess": "Flashcard deleted.",
+      "deleteToastError": "Failed to delete flashcard.",
+      "updateToastSuccess": "Flashcard updated.",
+      "updateToastError": "Failed to update flashcard."
     }
   }
 }
