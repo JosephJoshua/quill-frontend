@@ -31,10 +31,10 @@ export function LanguageSwitcher() {
           English
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => changeLanguage("es")}
-          disabled={i18n.resolvedLanguage === "es"}
+          onClick={() => changeLanguage("zh-CN")}
+          disabled={i18n.resolvedLanguage === "zh-CN"}
         >
-          Español (placeholder)
+          简体中文
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,0 +1,235 @@
+{
+  "appName": "Quill",
+  "nav": {
+    "dashboard": "总览",
+    "library": "资源库",
+    "srs": "智能复习",
+    "srsReview": "复习任务",
+    "srsBrowse": "浏览单词卡"
+  },
+  "userMenu": {
+    "profile": "个人资料",
+    "settings": "系统设置",
+    "logout": "退出登录"
+  },
+  "theme": {
+    "toggle": "切换主题",
+    "light": "浅色模式",
+    "dark": "深色模式",
+    "system": "跟随系统"
+  },
+  "login": {
+    "title": "登录账户",
+    "description": "输入邮箱登录您的账户",
+    "emailLabel": "电子邮箱",
+    "passwordLabel": "密码",
+    "submitButton": "立即登录",
+    "loadingButton": "登录中...",
+    "signupPrompt": "没有账户？",
+    "signupLink": "立即注册"
+  },
+  "signup": {
+    "title": "创建账户",
+    "description": "填写信息创建新账户",
+    "nameLabel": "用户名",
+    "submitButton": "注册账户",
+    "loadingButton": "创建中...",
+    "loginPrompt": "已有账户？",
+    "loginLink": "立即登录"
+  },
+  "dashboard": {
+    "title": "学习总览",
+    "welcome": "欢迎进入学习空间，您的语言之旅由此启程",
+    "reviewQueue": "待复习内容",
+    "reviewQueueDesc": "需要复习的单词卡",
+    "startReview": "开始复习",
+    "continueReading": "继续阅读",
+    "continueReadingDesc": "接续上次阅读进度",
+    "openBook": "打开书籍",
+    "startReading": "开始阅读",
+    "startReadingDesc": "探索资源库开启阅读",
+    "browseLibrary": "浏览资源库",
+    "weeklyGoal": "周目标",
+    "weeklyGoalDesc": "本周学习进度",
+    "comingSoon": "功能即将上线",
+    "recommendations": "精选推荐"
+  },
+  "library": {
+    "title": "资源库",
+    "searchPlaceholder": "搜索标题...",
+    "language": "语言",
+    "allLanguages": "全部语言",
+    "difficulty": "难度",
+    "allLevels": "全部级别",
+    "table": {
+      "title": "标题",
+      "author": "作者",
+      "language": "语言",
+      "level": "难度",
+      "actions": "操作"
+    },
+    "noResults": "未找到相关内容",
+    "read": "开始阅读",
+    "pagination": {
+      "previous": "上一页",
+      "next": "下一页",
+      "pageInfo": "第 {{currentPage}} 页，共 {{totalPages}} 页"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了，请重试"
+  },
+  "onboarding": {
+    "title": "语言能力评估",
+    "description": "请根据提示用{{language}}写一小段文字，这将优化您的学习体验（可选但推荐）",
+    "promptLabel": "写作提示",
+    "textLabel": "您的回答",
+    "submitButton": "提交评估",
+    "submittingButton": "提交中...",
+    "skipButton": "暂时跳过",
+    "errors": {
+      "promptFailed": "提示加载失败，请稍后重试",
+      "submitFailed": "提交失败，请重试"
+    }
+  },
+  "reader": {
+    "takeQuiz": "开始测验",
+    "createFlashcard": "创建单词卡",
+    "createFlashcardTitle": "新建单词卡",
+    "createFlashcardDescription": "编辑新单词卡内容",
+    "frontTextLabel": "正面内容（原文）",
+    "backTextLabel": "背面内容（翻译/释义）",
+    "furiganaLabel": "注音假名（可选）",
+    "pinyinLabel": "拼音标注（可选）",
+    "submitButton": "创建卡片",
+    "submittingButton": "创建中...",
+    "toastSuccess": "单词卡创建成功！",
+    "toastError": "创建失败",
+    "loading": "内容加载中...",
+    "error": "内容加载失败，请返回重试",
+    "backToLibrary": "返回资源库",
+    "wordDefinition": "释义",
+    "partOfSpeech": "词性",
+    "example": "例句"
+  },
+  "tutor": {
+    "title": "AI导师",
+    "placeholder": "输入关于文本的疑问...",
+    "submit": "发送",
+    "welcome": "您好！我是您的AI导师，可解答文本相关问题"
+  },
+  "srs": {
+    "title": "复习任务",
+    "showAnswer": "显示答案",
+    "allDoneTitle": "已完成！",
+    "allDoneDescription": "本次复习任务已完成，继续加油！",
+    "backToDashboard": "返回总览",
+    "loadingError": "加载失败，请重试",
+    "details": {
+      "title": "详细信息",
+      "pos": "词性",
+      "pinyin": "拼音",
+      "ipa": "国际音标",
+      "examples": "例句"
+    },
+    "ratings": {
+      "again": "重来",
+      "hard": "困难",
+      "good": "良好",
+      "easy": "简单"
+    },
+    "browse": {
+      "title": "我的单词卡",
+      "searchPlaceholder": "搜索单词卡...",
+      "table": {
+        "front": "正面",
+        "back": "背面",
+        "dueDate": "下次复习",
+        "actions": "操作"
+      },
+      "edit": "编辑",
+      "delete": "删除",
+      "deleteConfirmTitle": "确认删除？",
+      "deleteConfirmDescription": "此操作不可逆，将永久删除该单词卡",
+      "deleteToastSuccess": "单词卡已删除",
+      "deleteToastError": "删除失败",
+      "updateToastSuccess": "更新成功",
+      "updateToastError": "更新失败"
+    }
+  },
+  "quiz": {
+    "title": "理解测验",
+    "submit": "提交测验",
+    "submitting": "提交中...",
+    "resultsTitle": "测验结果",
+    "grading": "正在评阅...",
+    "gradingDescription": "结果生成后将自动显示",
+    "score": "得分",
+    "correct": "正确",
+    "incorrect": "错误",
+    "yourAnswer": "您的答案",
+    "correctAnswer": "正确答案",
+    "backToLibrary": "返回资源库"
+  },
+  "profile": {
+    "title": "账户设置",
+    "description": "管理账户设置与偏好",
+    "tabs": {
+      "profile": "个人资料",
+      "security": "账户安全"
+    },
+    "nameLabel": "用户名",
+    "emailLabel": "电子邮箱",
+    "saveButton": "保存更改",
+    "savingButton": "保存中...",
+    "updateSuccess": "资料更新成功",
+    "updateError": "更新失败",
+    "password": {
+      "title": "修改密码",
+      "currentLabel": "当前密码",
+      "newLabel": "新密码",
+      "confirmLabel": "确认新密码",
+      "submitButton": "更新密码",
+      "success": "密码修改成功",
+      "error": "修改失败"
+    }
+  },
+  "landing": {
+    "nav": {
+      "features": "功能特色",
+      "testimonials": "用户评价",
+      "login": "登录"
+    },
+    "hero": {
+      "headline": "在阅读中提升语言流利度",
+      "subheadline": "Quill将AI学习工具融入文学作品，打造智能化语言学习平台",
+      "cta": "免费体验"
+    },
+    "features": {
+      "title": "更高效的学习方式",
+      "f1_title": "交互式阅读",
+      "f1_desc": "点击查词释义，划选生成单词卡，让被动阅读转为主动学习",
+      "f2_title": "AI智能导师",
+      "f2_desc": "随时解答语法、语境及文化问题，您的专属语言导师",
+      "f3_title": "智能复习系统",
+      "f3_desc": "间隔重复算法确保高效记忆，在最佳时刻巩固所学"
+    },
+    "testimonials": {
+      "title": "学员真实评价",
+      "t1_text": "Quill彻底改变了我阅读日语的方式，即时查词和单词卡功能是革命性的体验",
+      "t1_name": "亚历克斯·约翰逊",
+      "t1_role": "测试用户",
+      "t2_text": "AI导师如同私人教师，终于能理解那些曾被忽略的语言细节",
+      "t2_name": "玛丽亚·加西亚",
+      "t2_role": "日语学习者"
+    },
+    "final_cta": {
+      "title": "准备好启程了吗？",
+      "cta": "立即注册"
+    },
+    "footer": {
+      "copy": "© 2025 Quill 保留所有权利"
+    }
+  }
+}
