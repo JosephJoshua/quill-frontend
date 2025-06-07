@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,6 +10,7 @@ import { authService } from "@/services/authService";
 import { Language } from "@/types/api";
 
 export default function SignupPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { setToken, setUser } = useAuthStore();
   const [name, setName] = useState("");
@@ -22,19 +24,18 @@ export default function SignupPage() {
     setIsLoading(true);
     setError(null);
     try {
-      // For simplicity, we'll hardcode language preferences.
-      // In a real app, this would be part of a multi-step onboarding form.
       const registerData = {
         name,
         email,
         password,
-        nativeLanguages: ["eng"],
+        nativeLanguages: ["en"],
         targetLanguage: "jpn" as Language,
       };
       const { access_token, user } = await authService.register(registerData);
       setToken(access_token);
       setUser(user);
-      navigate("/dashboard"); // Or to an onboarding flow
+      // Onboarding logic will be added in the next step
+      navigate("/onboarding/assessment");
     } catch (err: any) {
       setError(err.message || "Failed to sign up. Please try again.");
     } finally {
@@ -46,32 +47,32 @@ export default function SignupPage() {
     <div className="flex items-center justify-center min-h-screen bg-secondary">
       <Card className="mx-auto max-w-sm">
         <CardHeader>
-          <CardTitle className="text-xl">Sign Up</CardTitle>
-          <CardDescription>Enter your information to create an account</CardDescription>
+          <CardTitle className="text-xl">{t('signup.title')}</CardTitle>
+          <CardDescription>{t('signup.description')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">{t('signup.nameLabel')}</Label>
               <Input id="name" placeholder="Max Robinson" required value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('login.emailLabel')}</Label>
               <Input id="email" type="email" placeholder="m@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t('login.passwordLabel')}</Label>
               <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             {error && <p className="text-sm text-destructive">{error}</p>}
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading ? "Creating Account..." : "Create an account"}
+              {isLoading ? t('signup.loadingButton') : t('signup.submitButton')}
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            Already have an account?{" "}
+            {t('signup.loginPrompt')}{" "}
             <Link to="/login" className="underline">
-              Login
+              {t('signup.loginLink')}
             </Link>
           </div>
         </CardContent>

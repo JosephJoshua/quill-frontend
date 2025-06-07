@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { RootLayout } from "@/layouts/root-layout";
 import { AppLayout } from "@/layouts/app-layout";
 import { ProtectedRoute } from "@/components/shared/protected-route";
@@ -6,42 +7,46 @@ import HomePage from "@/pages/home";
 import LoginPage from "@/pages/login";
 import SignupPage from "@/pages/signup";
 import DashboardPage from "@/pages/dashboard";
+import LibraryPage from "@/pages/library";
 import NotFoundPage from "@/pages/not-found";
 
-// Placeholder pages for new nav links
-import LibraryPage from "./pages/library";
-const SrsPage = () => <div className="container p-8"><h1>SRS Review</h1></div>;
+// We define the router inside a component to use the i18n hook
+const AppRouter = () => {
+  const { t } = useTranslation();
 
-const router = createBrowserRouter([
-  {
-    element: <RootLayout />,
-    errorElement: <NotFoundPage />,
-    children: [
-      // Public routes
-      { path: "/", element: <HomePage /> },
-      { path: "/login", element: <LoginPage /> },
-      { path: "/signup", element: <SignupPage /> },
-      
-      // Protected routes wrapped in the main AppLayout
-      {
-        element: <ProtectedRoute />,
-        children: [
-          {
-            element: <AppLayout />,
-            children: [
-              { path: "/dashboard", element: <DashboardPage /> },
-              { path: "/library", element: <LibraryPage /> },
-              { path: "/srs/review", element: <SrsPage /> },
-            ]
-          }
-        ],
-      },
-    ],
-  },
-]);
+  // Placeholder page for SRS
+  const SrsPage = () => <div className="container p-8"><h1>{t('nav.srs')}</h1></div>;
+
+  const router = createBrowserRouter([
+    {
+      element: <RootLayout />,
+      errorElement: <NotFoundPage />,
+      children: [
+        { path: "/", element: <HomePage /> },
+        { path: "/login", element: <LoginPage /> },
+        { path: "/signup", element: <SignupPage /> },
+        {
+          element: <ProtectedRoute />,
+          children: [
+            {
+              element: <AppLayout />,
+              children: [
+                { path: "/dashboard", element: <DashboardPage /> },
+                { path: "/library", element: <LibraryPage /> },
+                { path: "/srs/review", element: <SrsPage /> },
+              ]
+            }
+          ],
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
+}
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <AppRouter />;
 }
 
 export default App;
