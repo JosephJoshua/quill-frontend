@@ -9,7 +9,7 @@ import DashboardPage from "@/pages/dashboard";
 import NotFoundPage from "@/pages/not-found";
 
 // Placeholder pages for new nav links
-const LibraryPage = () => <div className="container p-8"><h1>Content Library</h1></div>;
+import LibraryPage from "./pages/library";
 const SrsPage = () => <div className="container p-8"><h1>SRS Review</h1></div>;
 
 const router = createBrowserRouter([

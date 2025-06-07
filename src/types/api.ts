@@ -65,3 +65,15 @@ export interface Flashcard {
   state: FlashcardState;
   dueDate: string;
 }
+
+// --- Generic Paginated Response ---
+export interface PaginatedResponse<T> {
+  items: T[];
+  meta: {
+    totalItems: number;
+    itemCount: number;
+    itemsPerPage: number;
+    totalPages: number;
+    currentPage: number;
+  };
+}
