@@ -1,54 +1,106 @@
-# React + TypeScript + Vite
+# Quill Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the frontend application for **Quill**, an intelligent language learning platform designed to help users improve their language skills through literature. Quill provides an immersive and interactive user experience for its AI-powered tutoring, content management, and vocabulary retention systems.
 
-Currently, two official plugins are available:
+The frontend is built with [React](https://react.dev/) and [Vite](https://vitejs.dev/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Core Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   **Interactive Reader**: An immersive view for reading texts with an integrated, resizable AI Tutor panel that provides Socratic dialogue.
+-   **On-the-Fly Flashcards**: Users can select text within the reader to instantly create vocabulary flashcards, which are then added to the SRS.
+-   **Spaced Repetition System (SRS)**: A full-featured flashcard review system based on the FSRS algorithm to optimize vocabulary retention. Includes interfaces for browsing decks and managing review sessions.
+-   **AI-Powered Quizzes**: Dynamically generated quizzes based on the content to test comprehension, with an interface for taking and reviewing attempts.
+-   **User Proficiency Assessment**: A dedicated section for users to submit writing samples and receive a CEFR proficiency level estimation.
+-   **Responsive Dashboard**: A central hub that provides users with an overview of their learning progress, recent activities, and SRS review schedule.
+-   **Modern UI/UX**: Built with **shadcn/ui** and **Tailwind CSS** for a clean, accessible, and responsive design that works across all devices. Includes dark mode support.
+-   **Internationalization (i18n)**: Supports multiple languages for the user interface.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+---
+
+## Technology Stack
+
+| Category                 | Technology                                                                                                  |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| **Framework/Library** | [React](https://react.dev/), [Vite](https://vitejs.dev/)                                                     |
+| **Language** | [TypeScript](https://www.typescriptlang.org/)                                                               |
+| **UI Components** | [shadcn/ui](https://ui.shadcn.com/), [Radix UI](https://www.radix-ui.com/)                                    |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/)                                                                    |
+| **State Management** | [Zustand](https://zustand-demo.pmnd.rs/)                                                                    |
+| **Routing** | [React Router](https://reactrouter.com/)                                                                    |
+| **API Communication** | [Axios](https://axios-http.com/)                                                                            |
+| **Form Management** | [React Hook Form](https://react-hook-form.com/), [Zod](https://zod.dev/)                                     |
+| **Charts & Visualization**| [Recharts](https://recharts.org/)                                                                           |
+| **Internationalization** | [i18next](https://www.i18next.com/)                                                                         |
+| **Linting & Formatting** | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)                                              |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/en/) (v20 or higher recommended)
+-   [pnpm](https://pnpm.io/installation)
+-   A running instance of the [Quill Backend](https://github.com/josephjoshua/quill-backend)
+
+### 1. Environment Setup
+
+Create a `.env.local` file in the root directory by copying the example below. This file will contain the URL for your running backend instance.
+
+```env
+# .env.local.example
+
+# The base URL for the Quill backend API
+VITE_API_URL=http://localhost:3000/api
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Installation
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+Install the project dependencies using pnpm:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+```bash
+pnpm install
 ```
+
+### 3. Running the Application
+
+To run the application in development mode with live-reloading:
+
+```bash
+pnpm run dev
+```
+
+The application will be available at `http://localhost:5173` (or another port if 5173 is in use).
+
+### Scripts
+
+-   `pnpm run dev`: Start the development server.
+-   `pnpm run build`: Build the application for production.
+-   `pnpm run lint`: Lint the codebase using ESLint.
+-   `pnpm run preview`: Preview the production build locally.
+
+---
+
+## Project Structure
+
+The frontend is organized into a modular and maintainable structure:
+
+-   **/src/pages**: Contains the main component for each route/page (e.g., `Dashboard`, `Library`, `Reader`).
+-   **/src/components**: Contains reusable React components.
+    -   **/ui**: Auto-generated components from `shadcn/ui`.
+    -   **/shared**: Custom, widely-used components like `Header` and `EmptyState`.
+    -   **/reader**: Components specific to the reader interface.
+    -   **/skeletons**: Loading skeleton components for a better user experience.
+-   **/src/services**: Modules for making API calls to the backend.
+-   **/src/store**: Global state management configuration using Zustand.
+-   **/src/layouts**: Layout components that provide a consistent structure, like `AppLayout`.
+-   **/src/hooks**: Custom React hooks used throughout the application.
+-   **/src/lib**: Shared utility functions.
+
+---
+
+## License
+
+This project is licensed under the MIT license.
