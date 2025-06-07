@@ -14,6 +14,7 @@ import SrsReviewPage from "@/pages/srs-review";
 import SrsBrowsePage from "@/pages/srs-browse";
 import QuizPage from "@/pages/quiz";
 import QuizAttemptPage from "@/pages/quiz-attempt";
+import ProfilePage from "@/pages/profile";
 import NotFoundPage from "@/pages/not-found";
 
 const AppRouter = () => {
@@ -38,6 +39,7 @@ const AppRouter = () => {
               children: [
                 { path: "/dashboard", element: <DashboardPage /> },
                 { path: "/library", element: <LibraryPage /> },
+                { path: "/profile", element: <ProfilePage /> },
                 { path: "/srs/review", element: <SrsReviewPage /> },
                 { path: "/srs/all", element: <SrsBrowsePage /> },
                 { path: "/reader/:id", element: <ReaderPage /> },

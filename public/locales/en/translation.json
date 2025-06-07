@@ -171,5 +171,28 @@
     "yourAnswer": "Your answer",
     "correctAnswer": "Correct answer",
     "backToLibrary": "Back to Library"
+  },
+  "profile": {
+    "title": "Settings",
+    "description": "Manage your account settings and preferences.",
+    "tabs": {
+      "profile": "Profile",
+      "security": "Security"
+    },
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "saveButton": "Save changes",
+    "savingButton": "Saving...",
+    "updateSuccess": "Profile updated successfully.",
+    "updateError": "Failed to update profile.",
+    "password": {
+      "title": "Change Password",
+      "currentLabel": "Current Password",
+      "newLabel": "New Password",
+      "confirmLabel": "Confirm New Password",
+      "submitButton": "Update Password",
+      "success": "Password changed successfully.",
+      "error": "Failed to change password."
+    }
   }
 }

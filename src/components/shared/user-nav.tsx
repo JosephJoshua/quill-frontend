@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,10 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal"><div className="flex flex-col space-y-1"><p className="text-sm font-medium leading-none">{user.name}</p><p className="text-xs leading-none text-muted-foreground">{user.email}</p></div></DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup><DropdownMenuItem>{t('userMenu.profile')}</DropdownMenuItem><DropdownMenuItem>{t('userMenu.settings')}</DropdownMenuItem></DropdownMenuGroup>
+        <DropdownMenuGroup>
+          <DropdownMenuItem asChild><NavLink to="/profile" className="w-full">{t('userMenu.profile')}</NavLink></DropdownMenuItem>
+          <DropdownMenuItem disabled>{t('userMenu.settings')}</DropdownMenuItem>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleLogout}>{t('userMenu.logout')}</DropdownMenuItem>
       </DropdownMenuContent>
