@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { contentService } from "@/services/contentService";
 import { flashcardService } from "@/services/flashcardService";
+import { DashboardSkeleton } from "@/components/skeletons/dashboard-skeleton";
 
 export default function DashboardPage() {
   const { t } = useTranslation();
@@ -21,10 +22,11 @@ export default function DashboardPage() {
   });
 
   const isLoading = isLoadingRecs || isLoadingQueue;
+
+  if (isLoading) return <DashboardSkeleton />;
+
   const reviewCount = reviewQueue?.length ?? 0;
   const continueReadingItem = recommendations?.[0];
-
-  if (isLoading) return <div className="container p-8 text-center">{t('common.loading')}</div>;
 
   return (
     <div className="container p-4 sm:p-8">

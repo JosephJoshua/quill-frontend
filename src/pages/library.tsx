@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { LibrarySkeleton } from "@/components/skeletons/library-skeleton";
 
 const PAGE_LIMIT = 10;
 
@@ -43,11 +44,13 @@ export default function LibraryPage() {
           </Select>
         </div>
       </div>
-      {isLoading ? (<p>{t('common.loading')}</p>) : isError ? (<p className="text-destructive">{t('common.error')}</p>) : (
+      {isError ? (<p className="text-destructive text-center">{t('common.error')}</p>) : (
         <>
-          <div className="rounded-md border"><Table><TableHeader><TableRow><TableHead>{t('library.table.title')}</TableHead><TableHead className="hidden sm:table-cell">{t('library.table.author')}</TableHead><TableHead className="hidden md:table-cell">{t('library.table.language')}</TableHead><TableHead>{t('library.table.level')}</TableHead><TableHead><span className="sr-only">{t('library.table.actions')}</span></TableHead></TableRow></TableHeader><TableBody>
-            {data?.items.length ? (data.items.map((item) => (<TableRow key={item.id}><TableCell className="font-medium">{item.title}</TableCell><TableCell className="hidden sm:table-cell">{item.author || "N/A"}</TableCell><TableCell className="hidden md:table-cell">{item.language.toUpperCase()}</TableCell><TableCell>{item.difficultyLevel || "N/A"}</TableCell><TableCell className="text-right"><Button asChild variant="ghost" size="sm"><Link to={`/reader/${item.id}`}>{t('library.read')}</Link></Button></TableCell></TableRow>))) : (<TableRow><TableCell colSpan={5} className="h-24 text-center">{t('library.noResults')}</TableCell></TableRow>)}
-          </TableBody></Table></div>
+          {isLoading ? <LibrarySkeleton /> : (
+            <div className="rounded-md border"><Table><TableHeader><TableRow><TableHead>{t('library.table.title')}</TableHead><TableHead className="hidden sm:table-cell">{t('library.table.author')}</TableHead><TableHead className="hidden md:table-cell">{t('library.table.language')}</TableHead><TableHead>{t('library.table.level')}</TableHead><TableHead><span className="sr-only">{t('library.table.actions')}</span></TableHead></TableRow></TableHeader><TableBody>
+              {data?.items.length ? (data.items.map((item) => (<TableRow key={item.id}><TableCell className="font-medium">{item.title}</TableCell><TableCell className="hidden sm:table-cell">{item.author || "N/A"}</TableCell><TableCell className="hidden md:table-cell">{item.language.toUpperCase()}</TableCell><TableCell>{item.difficultyLevel || "N/A"}</TableCell><TableCell className="text-right"><Button asChild variant="ghost" size="sm"><Link to={`/reader/${item.id}`}>{t('library.read')}</Link></Button></TableCell></TableRow>))) : (<TableRow><TableCell colSpan={5} className="h-24 text-center">{t('library.noResults')}</TableCell></TableRow>)}
+            </TableBody></Table></div>
+          )}
           <div className="flex items-center justify-end space-x-2 py-4">
             <Button variant="outline" size="sm" onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>{t('library.pagination.previous')}</Button>
             <span className="text-sm text-muted-foreground">{t('library.pagination.pageInfo', { currentPage: data?.meta.currentPage, totalPages: data?.meta.totalPages })}</span>
