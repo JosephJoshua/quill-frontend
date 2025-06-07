@@ -1,0 +1,81 @@
+{
+  "appName": "Quill",
+  "nav": {
+    "dashboard": "Dashboard",
+    "library": "Library",
+    "srs": "SRS"
+  },
+  "userMenu": {
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "login": {
+    "title": "Login",
+    "description": "Enter your email below to login to your account",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "submitButton": "Login",
+    "loadingButton": "Logging in...",
+    "signupPrompt": "Don't have an account?",
+    "signupLink": "Sign up"
+  },
+  "signup": {
+    "title": "Sign Up",
+    "description": "Enter your information to create an account",
+    "nameLabel": "Name",
+    "submitButton": "Create an account",
+    "loadingButton": "Creating Account...",
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Login"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome to your dashboard. Your learning journey starts here.",
+    "reviewQueue": "Review Queue",
+    "reviewQueueDesc": "Flashcards ready for review.",
+    "startReview": "Start Review",
+    "continueReading": "Continue Reading",
+    "continueReadingDesc": "Pick up where you left off.",
+    "openBook": "Open Book",
+    "startReading": "Start Reading",
+    "startReadingDesc": "Explore the library to begin.",
+    "browseLibrary": "Browse Library",
+    "weeklyGoal": "Weekly Goal",
+    "weeklyGoalDesc": "Your progress this week.",
+    "comingSoon": "Feature coming soon.",
+    "recommendations": "Recommendations"
+  },
+  "library": {
+    "title": "Content Library",
+    "searchPlaceholder": "Search titles...",
+    "language": "Language",
+    "allLanguages": "All Languages",
+    "difficulty": "Difficulty",
+    "allLevels": "All Levels",
+    "table": {
+      "title": "Title",
+      "author": "Author",
+      "language": "Language",
+      "level": "Level",
+      "actions": "Actions"
+    },
+    "noResults": "No results found.",
+    "read": "Read",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{currentPage}} of {{totalPages}}"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again."
+  }
+}
