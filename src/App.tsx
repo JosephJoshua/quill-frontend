@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { RootLayout } from "@/layouts/root-layout";
 import { AppLayout } from "@/layouts/app-layout";
 import { ProtectedRoute } from "@/components/shared/protected-route";
@@ -18,8 +17,6 @@ import ProfilePage from "@/pages/profile";
 import NotFoundPage from "@/pages/not-found";
 
 const AppRouter = () => {
-  const { t } = useTranslation();
-
   const router = createBrowserRouter([
     {
       element: <RootLayout />,

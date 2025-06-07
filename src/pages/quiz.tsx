@@ -62,7 +62,7 @@ export default function QuizPage() {
       <h1 className="text-3xl font-bold mb-2">{t("quiz.title")}</h1>
       <h2 className="text-xl text-muted-foreground mb-8">{content.title}</h2>
       <form onSubmit={handleSubmit} className="space-y-8">
-        {content.comprehensionQuestions.map((q, index) => (
+        {content.comprehensionQuestions?.map((q, index) => (
           <div key={q.id} className="p-6 border rounded-lg">
             <p className="font-semibold mb-4">
               {index + 1}. {q.question}

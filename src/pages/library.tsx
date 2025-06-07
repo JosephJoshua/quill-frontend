@@ -46,7 +46,6 @@ export default function LibraryPage() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["allContent", queryParams],
     queryFn: () => contentService.getAll(queryParams),
-    keepPreviousData: true,
   });
 
   return (

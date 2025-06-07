@@ -14,8 +14,8 @@ export default function QuizAttemptPage() {
   const { data: attempt, isError } = useQuery({
     queryKey: ["quizAttempt", attemptId],
     queryFn: () => quizService.getAttempt(attemptId!),
-    // Poll for updates until the status is 'completed'
-    refetchInterval: (data) => (data?.status === "completed" ? false : 5000),
+    refetchInterval: (data) =>
+      data?.state.status === "success" ? false : 5000,
     enabled: !!attemptId,
   });
 

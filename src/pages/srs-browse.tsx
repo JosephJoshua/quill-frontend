@@ -81,7 +81,7 @@ const EditCardDialog = ({
     defaultValues: { frontText: "", backText: "", furigana: "", pinyin: "" },
   });
 
-  const { mutate: updateCard, isLoading } = useMutation({
+  const { mutate: updateCard, isPending: isLoading } = useMutation({
     mutationFn: (data: UpdateFlashcardDto) =>
       flashcardService.update(card!.id, data),
     onSuccess: () => {
@@ -193,7 +193,7 @@ export default function SrsBrowsePage() {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, _] = useState(1);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const [cardToEdit, setCardToEdit] = useState<Flashcard | null>(null);
   const [cardToDelete, setCardToDelete] = useState<Flashcard | null>(null);
@@ -206,14 +206,13 @@ export default function SrsBrowsePage() {
   const { data, isLoading } = useQuery({
     queryKey: ["allFlashcards", queryParams],
     queryFn: () => flashcardService.getAll(queryParams),
-    keepPreviousData: true,
   });
 
   const { mutate: deleteCard } = useMutation({
     mutationFn: (id: string) => flashcardService.deleteById(id),
     onSuccess: () => {
       toast.success(t("srs.browse.deleteToastSuccess"));
-      queryClient.invalidateQueries({ queryKey: ["allFlashcards"] });
+      return queryClient.invalidateQueries({ queryKey: ["allFlashcards"] });
     },
     onError: () => toast.error(t("srs.browse.deleteToastError")),
     onSettled: () => setCardToDelete(null),

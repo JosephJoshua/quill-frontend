@@ -78,7 +78,7 @@ export default function ReaderPage() {
               <div className="p-6 md:p-8">
                 <div className="flex justify-between items-center mb-4">
                   <h1 className="text-2xl font-bold">{content.title}</h1>
-                  {content.comprehensionQuestions?.length > 0 && (
+                  {(content.comprehensionQuestions?.length ?? 0) > 0 && (
                     <Button asChild>
                       <Link to={`/quiz/${content.id}`}>
                         {t("reader.takeQuiz")}

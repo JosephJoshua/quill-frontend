@@ -49,7 +49,7 @@ function ProfileForm() {
     defaultValues: { name: user?.name || "" },
   });
 
-  const { mutate, isLoading } = useMutation({
+  const { mutate, isPending: isLoading } = useMutation({
     mutationFn: (data: { name: string }) => userService.updateProfile(data),
     onSuccess: (updatedUser) => {
       toast.success(t("profile.updateSuccess"));
@@ -103,7 +103,7 @@ function SecurityForm() {
     resolver: zodResolver(passwordFormSchema),
     defaultValues: { oldPassword: "", newPassword: "", confirmPassword: "" },
   });
-  const { mutate, isLoading } = useMutation({
+  const { mutate, isPending: isLoading } = useMutation({
     mutationFn: (data: z.infer<typeof passwordFormSchema>) =>
       userService.changePassword(data),
     onSuccess: () => {

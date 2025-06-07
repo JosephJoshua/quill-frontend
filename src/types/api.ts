@@ -89,6 +89,26 @@ export interface ContentSummary {
   createdAt: string;
 }
 
+export interface BaseQuestion {
+  id: string;
+  question: string;
+}
+
+export interface MultipleChoiceQuestion extends BaseQuestion {
+  questionType: "multipleChoice";
+  options: string[];
+  correctAnswerIndex: number;
+  explanation?: string;
+}
+
+export interface OpenEndedQuestion extends BaseQuestion {
+  questionType: "openEnded";
+  subType: "literal" | "inference" | "analytical";
+  suggestedAnswer: string;
+}
+
+export type ComprehensionQuestion = MultipleChoiceQuestion | OpenEndedQuestion;
+
 export interface ContentDetailResponse {
   id: string;
   title: string;
@@ -103,6 +123,7 @@ export interface ContentDetailResponse {
       exampleSentence: string;
     }[];
   };
+  comprehensionQuestions?: ComprehensionQuestion[];
 }
 
 // --- Generic Paginated Response ---
