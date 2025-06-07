@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,13 @@ export function TutorPanel({ contentId }: TutorPanelProps) {
   const [messages, setMessages] = useState<Omit<Dialogue, 'id' | 'timestamp'>[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTo({ top: scrollAreaRef.current.scrollHeight, behavior: 'smooth' });
+    }
+  }, [messages]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -45,48 +52,26 @@ export function TutorPanel({ contentId }: TutorPanelProps) {
 
   return (
     <div className="flex flex-col h-full border-l">
-      <div className="p-4 border-b">
+      <div className="p-4 border-b shrink-0">
         <h2 className="text-lg font-semibold">{t('tutor.title')}</h2>
       </div>
-      <ScrollArea className="flex-1 p-4">
-        <div className="space-y-4">
+      <ScrollArea className="flex-1" ref={scrollAreaRef}>
+        <div className="p-4 space-y-4">
           <div className="flex items-start gap-3">
-            <div className="flex-1 space-y-1">
-              <p className="text-sm font-semibold text-primary">AI Tutor</p>
-              <div className="bg-muted p-3 rounded-lg text-sm">{t('tutor.welcome')}</div>
-            </div>
+            <div className="flex-1 space-y-1"><p className="text-sm font-semibold text-primary">AI Tutor</p><div className="bg-muted p-3 rounded-lg text-sm">{t('tutor.welcome')}</div></div>
           </div>
           {messages.map((msg, index) => (
             <div key={index} className="space-y-4">
-              <div className="flex items-start gap-3 justify-end">
-                <div className="flex-1 space-y-1 text-right">
-                  <p className="text-sm font-semibold">{user?.name}</p>
-                  <div className="bg-primary text-primary-foreground p-3 rounded-lg inline-block text-left">{msg.userMessage}</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="flex-1 space-y-1">
-                  <p className="text-sm font-semibold text-primary">AI Tutor</p>
-                  <div className="bg-muted p-3 rounded-lg text-sm">{msg.aiResponse}</div>
-                </div>
-              </div>
+              <div className="flex items-start gap-3 justify-end"><div className="flex-1 space-y-1 text-right"><p className="text-sm font-semibold">{user?.name}</p><div className="bg-primary text-primary-foreground p-3 rounded-lg inline-block text-left">{msg.userMessage}</div></div></div>
+              <div className="flex items-start gap-3"><div className="flex-1 space-y-1"><p className="text-sm font-semibold text-primary">AI Tutor</p><div className="bg-muted p-3 rounded-lg text-sm">{msg.aiResponse}</div></div></div>
             </div>
           ))}
         </div>
       </ScrollArea>
-      <div className="p-4 border-t">
+      <div className="p-4 border-t shrink-0">
         <div className="flex items-center gap-2">
-          <Input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()}
-            placeholder={t('tutor.placeholder')}
-            disabled={isLoading}
-          />
-          <Button onClick={handleSend} disabled={isLoading} size="icon">
-            <Send className="h-4 w-4" />
-            <span className="sr-only">{t('tutor.submit')}</span>
-          </Button>
+          <Input value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()} placeholder={t('tutor.placeholder')} disabled={isLoading} />
+          <Button onClick={handleSend} disabled={isLoading} size="icon"><Send className="h-4 w-4" /><span className="sr-only">{t('tutor.submit')}</span></Button>
         </div>
       </div>
     </div>

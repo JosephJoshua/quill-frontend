@@ -7,6 +7,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { ContentDisplay } from '@/components/reader/content-display';
 import { TutorPanel } from '@/components/reader/tutor-panel';
 import { CreateFlashcardDialog } from '@/components/reader/create-flashcard-dialog';
+import { ReaderTabs } from '@/components/reader/reader-tabs';
 import { contentService } from '@/services/contentService';
 import { ContentDetailResponse } from '@/types/api';
 
@@ -58,25 +59,34 @@ export default function ReaderPage() {
 
   return (
     <>
-      <ResizablePanelGroup direction="horizontal" className="min-h-screen w-full">
-        <ResizablePanel defaultSize={65} minSize={30}>
-          <ScrollArea className="h-screen">
-            <div className="p-6 md:p-8">
-              <div className="flex justify-between items-center mb-4">
-                <h1 className="text-2xl font-bold">{content.title}</h1>
-                {content.comprehensionQuestions?.length > 0 && (
-                  <Button asChild><Link to={`/quiz/${content.id}`}>{t('reader.takeQuiz')}</Link></Button>
-                )}
+      {/* Desktop View: Resizable Panels */}
+      <div className="hidden md:flex h-screen">
+        <ResizablePanelGroup direction="horizontal" className="w-full">
+          <ResizablePanel defaultSize={65} minSize={30}>
+            <ScrollArea className="h-screen">
+              <div className="p-6 md:p-8">
+                <div className="flex justify-between items-center mb-4">
+                  <h1 className="text-2xl font-bold">{content.title}</h1>
+                  {content.comprehensionQuestions?.length > 0 && (
+                    <Button asChild><Link to={`/quiz/${content.id}`}>{t('reader.takeQuiz')}</Link></Button>
+                  )}
+                </div>
+                <ContentDisplay content={content} onTextSelect={handleTextSelect} />
               </div>
-              <ContentDisplay content={content} onTextSelect={handleTextSelect} />
-            </div>
-          </ScrollArea>
-        </ResizablePanel>
-        <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={35} minSize={20}>
-          <TutorPanel contentId={content.id} />
-        </ResizablePanel>
-      </ResizablePanelGroup>
+            </ScrollArea>
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={35} minSize={20}>
+            <TutorPanel contentId={content.id} />
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </div>
+
+      {/* Mobile View: Tabs */}
+      <div className="md:hidden">
+        <ReaderTabs content={content} onTextSelect={handleTextSelect} />
+      </div>
+
       <CreateFlashcardDialog
         isOpen={isCardCreatorOpen}
         onOpenChange={setIsCardCreatorOpen}
