@@ -194,5 +194,42 @@
       "success": "Password changed successfully.",
       "error": "Failed to change password."
     }
+  },
+  "landing": {
+    "nav": {
+      "features": "Features",
+      "testimonials": "Testimonials",
+      "login": "Log In"
+    },
+    "hero": {
+      "headline": "Read Your Way to Fluency",
+      "subheadline": "Quill is an intelligent language learning platform that enhances your proficiency by integrating AI-powered learning aids directly into literature.",
+      "cta": "Get Started for Free"
+    },
+    "features": {
+      "title": "A Smarter Way to Learn",
+      "f1_title": "Interactive Reading",
+      "f1_desc": "Click on any word for definitions, or highlight phrases to create flashcards instantly. Turn passive reading into active learning.",
+      "f2_title": "AI-Powered Tutor",
+      "f2_desc": "Your personal language tutor is always available. Ask questions about grammar, context, or culture right alongside the text.",
+      "f3_title": "Intelligent SRS",
+      "f3_desc": "Our Spaced Repetition System ensures you never forget vocabulary. Review what you need, right when you need it."
+    },
+    "testimonials": {
+      "title": "Loved by Language Learners",
+      "t1_text": "\"Quill completely changed how I read in Japanese. The instant lookups and flashcard creation are game-changers.\"",
+      "t1_name": "Alex Johnson",
+      "t1_role": "Beta Tester",
+      "t2_text": "\"The AI tutor feels like having a private teacher. I can finally understand the nuances I used to miss.\"",
+      "t2_name": "Maria Garcia",
+      "t2_role": "Spanish Learner"
+    },
+    "final_cta": {
+      "title": "Ready to Start Your Journey?",
+      "cta": "Sign Up Now"
+    },
+    "footer": {
+      "copy": "© 2024 Quill. All rights reserved."
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RootLayout } from "@/layouts/root-layout";
 import { AppLayout } from "@/layouts/app-layout";
+import { LandingLayout } from "@/layouts/landing-layout";
 import { ProtectedRoute } from "@/components/shared/protected-route";
 import HomePage from "@/pages/home";
 import LoginPage from "@/pages/login";
@@ -22,9 +23,15 @@ const AppRouter = () => {
       element: <RootLayout />,
       errorElement: <NotFoundPage />,
       children: [
-        { path: "/", element: <HomePage /> },
+        // Public routes with the landing page layout
+        {
+          element: <LandingLayout />,
+          children: [{ path: "/", element: <HomePage /> }],
+        },
+        // Standalone public routes
         { path: "/login", element: <LoginPage /> },
         { path: "/signup", element: <SignupPage /> },
+        // Protected routes
         {
           element: <ProtectedRoute />,
           children: [
@@ -40,8 +47,8 @@ const AppRouter = () => {
                 { path: "/srs/review", element: <SrsReviewPage /> },
                 { path: "/srs/all", element: <SrsBrowsePage /> },
                 { path: "/reader/:id", element: <ReaderPage /> },
-              ],
-            },
+              ]
+            }
           ],
         },
       ],
@@ -49,7 +56,7 @@ const AppRouter = () => {
   ]);
 
   return <RouterProvider router={router} />;
-};
+}
 
 function App() {
   return <AppRouter />;
