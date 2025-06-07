@@ -217,19 +217,19 @@
     },
     "testimonials": {
       "title": "Loved by Language Learners",
-      "t1_text": "\"Quill completely changed how I read in Japanese. The instant lookups and flashcard creation are game-changers.\"",
+      "t1_text": "Quill completely changed how I read in Japanese. The instant lookups and flashcard creation are game-changers.",
       "t1_name": "Alex Johnson",
       "t1_role": "Beta Tester",
-      "t2_text": "\"The AI tutor feels like having a private teacher. I can finally understand the nuances I used to miss.\"",
+      "t2_text": "The AI tutor feels like having a private teacher. I can finally understand the nuances I used to miss.",
       "t2_name": "Maria Garcia",
-      "t2_role": "Spanish Learner"
+      "t2_role": "Japanese Learner"
     },
     "final_cta": {
       "title": "Ready to Start Your Journey?",
       "cta": "Sign Up Now"
     },
     "footer": {
-      "copy": "© 2024 Quill. All rights reserved."
+      "copy": "© 2025 Quill. All rights reserved."
     }
   }
 }
