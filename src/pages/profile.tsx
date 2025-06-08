@@ -177,7 +177,7 @@ function SecurityForm() {
 export default function ProfilePage() {
   const { t } = useTranslation();
   return (
-    <div className="container max-w-4xl p-4 sm:p-8">
+    <div className="w-full max-w-4xl p-4 sm:p-8">
       <h1 className="text-3xl font-bold tracking-tight mb-6">
         {t("profile.title")}
       </h1>

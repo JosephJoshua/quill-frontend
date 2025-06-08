@@ -36,7 +36,7 @@ export default function DashboardPage() {
   const continueReadingItem = recommendations?.[0];
 
   return (
-    <div className="container p-4 sm:p-8">
+    <div className="w-full p-4 sm:p-8">
       <h1 className="text-3xl font-bold tracking-tight mb-6">
         {t("dashboard.title")}
       </h1>
@@ -84,15 +84,15 @@ export default function DashboardPage() {
             </CardFooter>
           </Card>
         ) : (
-          <Card className="flex flex-col justify-center items-center">
+          <Card className="flex flex-col justify-between items-stretch">
             <CardHeader>
               <CardTitle>{t("dashboard.startReading")}</CardTitle>
-              <CardDescription className="text-center">
+              <CardDescription>
                 {t("dashboard.startReadingDesc")}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button asChild>
+              <Button asChild className="w-full">
                 <Link to="/library">{t("dashboard.browseLibrary")}</Link>
               </Button>
             </CardContent>

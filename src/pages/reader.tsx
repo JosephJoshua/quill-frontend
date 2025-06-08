@@ -31,19 +31,27 @@ export default function ReaderPage() {
       setIsLoading(false);
       return;
     }
-    const fetchContent = async () => {
+
+    const load = async () => {
       setIsLoading(true);
       setError(null);
+
       try {
-        const data = await contentService.getById(id);
+        const [data] = await Promise.all([
+          contentService.getById(id),
+          contentService.addToLibrary(id),
+        ]);
+
         setContent(data);
       } catch (err) {
         setError(t("reader.error"));
+        console.error(err);
       } finally {
         setIsLoading(false);
       }
     };
-    fetchContent();
+
+    load();
   }, [id, t]);
 
   const handleTextSelect = (text: string) => {

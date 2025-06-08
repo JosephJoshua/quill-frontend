@@ -38,4 +38,11 @@ export const contentService = {
   getById: (id: string): Promise<ContentDetailResponse> => {
     return apiClient.get<ContentDetailResponse>(`/content/${id}`);
   },
+
+  addToLibrary: (id: string) => {
+    return apiClient.post<ContentDetailResponse>(
+      `/content/${id}/add-to-library`,
+      {}
+    );
+  },
 };

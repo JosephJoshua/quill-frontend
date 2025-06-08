@@ -58,7 +58,7 @@ export default function QuizPage() {
   if (!content) return <div className="p-8">{t("common.error")}</div>;
 
   return (
-    <div className="container max-w-3xl mx-auto p-4 sm:p-8">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-8">
       <h1 className="text-3xl font-bold mb-2">{t("quiz.title")}</h1>
       <h2 className="text-xl text-muted-foreground mb-8">{content.title}</h2>
       <form onSubmit={handleSubmit} className="space-y-8">

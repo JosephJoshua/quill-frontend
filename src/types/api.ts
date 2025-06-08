@@ -128,7 +128,7 @@ export interface ContentDetailResponse {
 
 // --- Generic Paginated Response ---
 export interface PaginatedResponse<T> {
-  items: T[];
+  data: T[];
   meta: {
     totalItems: number;
     itemCount: number;

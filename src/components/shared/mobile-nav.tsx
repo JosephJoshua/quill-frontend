@@ -27,7 +27,7 @@ export function MobileNav() {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="pr-0">
+      <SheetContent side="left" className="px-4 py-8">
         <NavLink
           to="/"
           className="mr-6 flex items-center space-x-2"

@@ -15,7 +15,8 @@ export default function QuizAttemptPage() {
     queryKey: ["quizAttempt", attemptId],
     queryFn: () => quizService.getAttempt(attemptId!),
     refetchInterval: (data) =>
-      data?.state.status === "success" ? false : 5000,
+      // @ts-expect-error
+      data?.state.data?.status === "success" ? false : 5000,
     enabled: !!attemptId,
   });
 
@@ -27,7 +28,7 @@ export default function QuizAttemptPage() {
 
   if (attempt.status === "grading") {
     return (
-      <div className="container max-w-2xl mx-auto p-8 text-center">
+      <div className="w-full max-w-2xl mx-auto p-8 text-center">
         <h1 className="text-2xl font-bold mb-4">{t("quiz.grading")}</h1>
         <p className="text-muted-foreground">{t("quiz.gradingDescription")}</p>
       </div>
@@ -35,7 +36,7 @@ export default function QuizAttemptPage() {
   }
 
   return (
-    <div className="container max-w-3xl mx-auto p-4 sm:p-8">
+    <div className="w-full max-w-3xl mx-auto p-4 sm:p-8">
       <h1 className="text-3xl font-bold mb-8">{t("quiz.resultsTitle")}</h1>
       <Card className="mb-8">
         <CardHeader>

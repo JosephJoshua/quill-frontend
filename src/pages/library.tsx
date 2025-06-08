@@ -38,18 +38,19 @@ export default function LibraryPage() {
 
   const queryParams = {
     q: debouncedSearchTerm,
-    language,
-    difficultyLevel: difficulty,
+    language: language.trim().length === 0 ? undefined : language,
+    difficultyLevel: difficulty.trim().length === 0 ? undefined : difficulty,
     page: currentPage,
     limit: PAGE_LIMIT,
   };
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["allContent", queryParams],
     queryFn: () => contentService.getAll(queryParams),
   });
 
   return (
-    <div className="container p-4 sm:p-8">
+    <div className="w-full p-4 sm:p-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-3xl font-bold tracking-tight">
           {t("library.title")}
@@ -72,7 +73,7 @@ export default function LibraryPage() {
               <SelectValue placeholder={t("library.language")} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">{t("library.allLanguages")}</SelectItem>
+              <SelectItem value=" ">{t("library.allLanguages")}</SelectItem>
               <SelectItem value="eng">English</SelectItem>
               <SelectItem value="jpn">Japanese</SelectItem>
               <SelectItem value="chi_sim">Chinese</SelectItem>
@@ -89,7 +90,7 @@ export default function LibraryPage() {
               <SelectValue placeholder={t("library.difficulty")} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">{t("library.allLevels")}</SelectItem>
+              <SelectItem value=" ">{t("library.allLevels")}</SelectItem>
               <SelectItem value="A1">A1</SelectItem>
               <SelectItem value="A2">A2</SelectItem>
               <SelectItem value="B1">B1</SelectItem>
@@ -106,7 +107,7 @@ export default function LibraryPage() {
         <>
           {isLoading ? (
             <LibrarySkeleton />
-          ) : !data?.items.length ? (
+          ) : !data?.data?.length ? (
             <EmptyState
               title="No Content Found"
               description="Try adjusting your search or filters to find what you're looking for."
@@ -133,7 +134,7 @@ export default function LibraryPage() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {data.items.map((item) => (
+                  {data?.data?.map((item) => (
                     <TableRow key={item.id}>
                       <TableCell className="font-medium">
                         {item.title}
@@ -158,7 +159,7 @@ export default function LibraryPage() {
               </Table>
             </div>
           )}
-          {data?.items.length ? (
+          {data?.data?.length ? (
             <div className="flex items-center justify-end space-x-2 py-4">
               <Button
                 variant="outline"

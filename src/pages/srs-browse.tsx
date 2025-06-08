@@ -219,7 +219,7 @@ export default function SrsBrowsePage() {
   });
 
   return (
-    <div className="container p-4 sm:p-8">
+    <div className="w-full p-4 sm:p-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-3xl font-bold tracking-tight">
           {t("srs.browse.title")}
@@ -252,15 +252,17 @@ export default function SrsBrowsePage() {
                   {t("common.loading")}
                 </TableCell>
               </TableRow>
-            ) : data?.items.length ? (
-              data.items.map((card) => (
+            ) : data?.data?.length ? (
+              data.data?.map((card) => (
                 <TableRow key={card.id}>
                   <TableCell className="font-medium">
                     {card.frontText}
                   </TableCell>
                   <TableCell>{card.backText}</TableCell>
                   <TableCell className="hidden md:table-cell">
-                    {new Date(card.dueDate).toLocaleDateString()}
+                    {new Date(card.dueDate).toLocaleDateString() +
+                      " " +
+                      new Date(card.dueDate).toLocaleTimeString()}
                   </TableCell>
                   <TableCell className="text-right">
                     <DropdownMenu>
