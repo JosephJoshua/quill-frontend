@@ -86,7 +86,9 @@ export const apiClient = {
   async request<T>(endpoint: string, options: FetchOptions): Promise<T> {
     const { useAuth = true, ...fetchOptions } = options;
     const headers = new Headers(fetchOptions.headers || {});
+
     headers.set("Content-Type", "application/json");
+    headers.set("ngrok-skip-browser-warning", "123abc");
 
     if (useAuth) {
       const token = useAuthStore.getState().token;
